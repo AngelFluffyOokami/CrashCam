@@ -1,0 +1,99 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CrashCam.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CrashCam.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        Title="CrashCam"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        >
+  <Window.Styles>
+    <Style Selector="Window[WindowState=Maximized]">
+      <Setter Property="Padding" Value="8" />
+    </Style>
+  </Window.Styles>
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="25">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Grid Grid.Column="0" HorizontalAlignment="Left">
+
+        <Grid.Styles>
+          <Style Selector="Button.Hamburg:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#FF808080"/>
+          </Style>
+        </Grid.Styles>
+        <Button Background="Transparent" Classes="Hamburg" CornerRadius="40" Width="20"/>
+        
+      </Grid>
+
+      <Grid Grid.Column="1" DockPanel.Dock="Right" HorizontalAlignment="Right">
+        <DockPanel LastChildFill="True">
+          <DockPanel.Styles>
+            <Style Selector="Button.CloseButton:pointerover /template/ ContentPresenter">
+              <Setter Property="Background" Value="#99FF8080"/>
+            </Style>
+            <Style Selector="Button.MaximizeButton:pointerover /template/ ContentPresenter">
+              <Setter Property="Background" Value="#9980FF80"/>
+            </Style>
+            <Style Selector="Button.MinimizeButton:pointerover /template/ ContentPresenter">
+              <Setter Property="Background" Value="#99FFFF00"/>
+            </Style>
+          </DockPanel.Styles>
+
+          <Button DockPanel.Dock="Right" Background="#FF999999" Classes="CloseButton" CornerRadius="40" Width="20" >
+          </Button>
+          <Button DockPanel.Dock="Right" Background="#FF999999" Classes="MaximizeButton" CornerRadius="40" Width="20" >
+          </Button>
+          <Button DockPanel.Dock="Right" Background="#FF999999" Classes="MinimizeButton" CornerRadius="40" Width="20" >
+          </Button>
+        </DockPanel>
+      </Grid>
+    </Grid>
+
+
+    <Grid Grid.Row="1" DockPanel.Dock="Bottom" VerticalAlignment="Stretch">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200" MinWidth="200"/>
+        <ColumnDefinition Width="2"/>
+        <ColumnDefinition Width="*" MinWidth="500"/>
+      </Grid.ColumnDefinitions>
+
+      <Border Grid.Column="0">
+        <Grid >
+          <Border CornerRadius="20" Background="#20FFFFFF"></Border>
+        </Grid>
+
+      </Border>
+
+      <GridSplitter Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    ResizeBehavior="PreviousAndNext"/>
+      <Border Grid.Column="2"></Border>
+    </Grid>
+  </Grid>
+
+
+
+</Window>

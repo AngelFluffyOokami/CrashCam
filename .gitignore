@@ -1,0 +1,12 @@
+*.dll
+GUI/.vs/**
+GUI/.vs/
+.vs/**
+.vs/
+GUI/gui/CrashCam/.vs/**
+GUI/gui/CrashCam/.vs/
+GUI/gui/CrashCam/bin/**
+GUI/gui/CrashCam/bin/
+GUI/gui/CrashCam/obj/**
+GUI/gui/CrashCam/obj/
+*.lock
